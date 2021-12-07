@@ -1,4 +1,4 @@
 access_key = " " 
 secret_key = " "
-region = "ap-south-1"
-bucket_name = "elitemax"
+region = "us-east-2"
+bucket_name = "aniketbuckyeset"
