@@ -9,7 +9,7 @@ variable "common_tags" {
 variable "subnet_ids" {
   description = "Contains subnet ids"
   type        = list(any)
-  default =["subnet-dd52a0b6"]
+  default =["subnet-dd52a0b89"]
 
 }
 
