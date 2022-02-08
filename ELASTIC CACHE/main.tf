@@ -14,6 +14,7 @@ resource "aws_elasticache_cluster" "elasticache" {
   
   availability_zone    = var.availability_zone
   maintenance_window   = var.maintenance_window
+   count            = "${var.condition == "default.redis6.x.cluster.on" ? 1 : 0}"
 }
 
 resource "aws_elasticache_replication_group" "example" {
@@ -24,6 +25,7 @@ resource "aws_elasticache_replication_group" "example" {
   
   parameter_group_name          = var.parameter_group_name
   port                          = var.port
+   count            = "${var.condition == "default.redis6.x.cluster.on" ? 0 : 1}"
 
   cluster_mode {
     replicas_per_node_group = 1

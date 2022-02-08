@@ -1,25 +1,25 @@
 variable "replication_group_id" {
   type        = string
-  default  = "redis1"
+  default  = ""
   description = "The replication group identifier. This parameter is stored as a lowercase string."
 }
 
 variable "cluster_id" {
   description = "cluster_id of cluster"
   type = string
-  default = "demo"
+  default = ""
 }
 
 
 variable "num_cache_nodes" {
-  default     = "1"
+  default     = ""
   type        = string
   description = "Cache Node count"
 }
 
 variable "node_type" {
   type        = string
-  default  = "cache.t2.micro"
+  default  = ""
   description = "The compute and memory capacity of the nodes in the node group."
 }
 
@@ -30,13 +30,13 @@ variable "security_group_ids" {
 }
 
 variable "replication_group_description" {
-  default     = "test description"
+  default     = ""
   type        = string
   description = "The description of the all resources."
 }
 
 variable "engine_version" {
-  default     = "6.x"
+  default     = ""
   type        = string
   description = "The version number of the cache engine to be used for the cache clusters in this replication group."
 }
@@ -44,7 +44,7 @@ variable "engine_version" {
 variable "maintenance_window" {
   type = string
   description = "describe your variable"
-  default = "sun:05:00-sun:06:00"
+  default = ""
 }
 
 variable "port" {
@@ -55,7 +55,7 @@ variable "port" {
 
 variable "parameter_group_name" {
   type = string
-  default     = "default.redis6.x.cluster.on"
+  default     = ""
   description = "A list of Redis parameters to apply. Note that parameters may differ from one Redis family to another"
 }
 
@@ -72,20 +72,20 @@ variable "availability_zone" {
 }
 
 variable "engine" {
-  default = "redis"
+  default = ""
   type = string
   description = "Engine for elasticache"
 }
 
 variable "num_node_groups" {
-  default = "1"
+  default = ""
   type    = string
   description = "Number of Shards (nodes)."
   
 }
 
 variable "region" {
-  default = "us-east-2"
+  default = ""
 }
 
 variable "access_key" {
@@ -96,4 +96,8 @@ variable "access_key" {
 variable "secret_key" {
   type = string
   default = ""
+}
+variable "condition" {
+  type    = string
+  default = "default.redis6.x.cluster.on"
 }
