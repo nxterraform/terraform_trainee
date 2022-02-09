@@ -1,3 +1,15 @@
+variable "apply_immediately" {
+  type = bool
+  description = "apply immediately default set to false"
+  default = "false"
+}
+
+variable "cluster_enabled" {
+  type   = bool
+  description = "will set cluster value to TRUE or FALSE"
+  default     = "false"
+}
+
 variable "replication_group_id" {
   type        = string
   default  = ""
@@ -9,7 +21,6 @@ variable "cluster_id" {
   type = string
   default = ""
 }
-
 
 variable "num_cache_nodes" {
   default     = ""
@@ -59,11 +70,7 @@ variable "parameter_group_name" {
   description = "A list of Redis parameters to apply. Note that parameters may differ from one Redis family to another"
 }
 
-variable "apply_immediately" {
-  type = string
-  description = "apply immediately default set to false"
-  default = "false"
-}
+
 
 variable "availability_zone" {
   type = string
@@ -96,8 +103,4 @@ variable "access_key" {
 variable "secret_key" {
   type = string
   default = ""
-}
-variable "condition" {
-  type    = string
-  default = "default.redis6.x.cluster.on"
 }
