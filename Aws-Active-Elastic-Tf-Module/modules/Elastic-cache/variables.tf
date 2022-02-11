@@ -26,5 +26,9 @@ variable "engine" {}
 
 variable "num_node_groups" {}
 
+variable "cluster_enabled"{}
+
+
+
 
 

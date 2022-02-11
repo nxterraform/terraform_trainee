@@ -1,7 +1,9 @@
 resource "aws_elasticache_cluster" "elasticache" {
+  count                        = "${var.cluster_enabled == true ? 1 : 0}"
+  
   //  Required parameters
   engine                       = var.engine
-  cluster_id                   =  "${var.engine}-${var.cluster_id}"
+  cluster_id                   = "${var.engine}-${var.cluster_id}"
   
   security_group_ids           = var.security_group_ids
   
@@ -15,9 +17,12 @@ resource "aws_elasticache_cluster" "elasticache" {
   
   availability_zone    = var.availability_zone
   maintenance_window   = var.maintenance_window
+
 }
 
 resource "aws_elasticache_replication_group" "example" {
+  count                         = "${var.cluster_enabled == false ? 1 : 0}"
+ 
   automatic_failover_enabled    = true
   replication_group_id          = var.replication_group_id
   replication_group_description = var.replication_group_description

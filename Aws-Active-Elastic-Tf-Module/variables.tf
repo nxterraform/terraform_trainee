@@ -74,12 +74,12 @@ variable "publicly_accessible" {
 
 variable "access_key" {
   type    = string
-  default = ""
+  default = "AKIAXGL7F2KIHWDNSJNZ"
 }
 
 variable "secret_key" {
   type    = string
-  default = ""
+  default = "Ai8b1p0ZvF9QFVyP9WfGCaCfBpPUrzaQFxRYtSrH"
 }
 
 variable "region" {
@@ -177,4 +177,10 @@ variable "num_node_groups" {
   type    = string
   description = "Number of Shards (nodes)."
   
+}
+
+variable "cluster_enabled" {
+  type   = bool
+  description = "will set cluster value to TRUE or FALSE"
+  default     = "false"
 }
