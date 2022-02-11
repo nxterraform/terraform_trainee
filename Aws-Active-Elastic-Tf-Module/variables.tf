@@ -74,12 +74,12 @@ variable "publicly_accessible" {
 
 variable "access_key" {
   type    = string
-  default = "AKIAXGL7F2KIHWDNSJNZ"
+  default = ""
 }
 
 variable "secret_key" {
   type    = string
-  default = "Ai8b1p0ZvF9QFVyP9WfGCaCfBpPUrzaQFxRYtSrH"
+  default = ""
 }
 
 variable "region" {
