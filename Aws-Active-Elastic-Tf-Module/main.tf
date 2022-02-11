@@ -38,6 +38,7 @@ module "redis" {
   parameter_group_name          = var.parameter_group_name
   replication_group_description = var.replication_group_description
   num_node_groups               = var.num_node_groups
+  cluster_enabled               = var.cluster_enabled
   
   depends_on                    = [module.mq]
  }
