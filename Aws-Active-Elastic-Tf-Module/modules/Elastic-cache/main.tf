@@ -12,7 +12,7 @@ resource "aws_elasticache_cluster" "elasticache" {
   node_type                    = var.node_type
  
   apply_immediately            = var.apply_immediately
-  engine_version               = var.engine_version
+  engine_version               = "6.x"
   port                         = var.port
   
   availability_zone    = var.availability_zone
