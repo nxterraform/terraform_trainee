@@ -10,8 +10,6 @@ variable "security_group_ids" {}
 
 variable "replication_group_description" {}
 
-variable "engine_version" {}
-
 variable "maintenance_window" {}
 
 variable "port" {}
