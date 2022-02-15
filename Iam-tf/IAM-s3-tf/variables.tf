@@ -2,11 +2,11 @@
   
 variable "username" {
   type    =     list
-  default = [""]
+  default = []
 }
 
 variable "region" {
-  default = "us-east-1"
+  default = ""
 }
 
 variable "access_key" {
@@ -21,6 +21,6 @@ variable "secret_key" {
 
 variable "name" {
   type = string
-  default = "s3_bucket"
+  default = ""
 }
 
