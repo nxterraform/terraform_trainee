@@ -4,6 +4,6 @@ output "security_group_ids" {
 }
 
 output "cluster_enabled" {
-  value = join("", aws_elasticache_replication_group.example.*.cluster_enabled)  
+  value = join("", aws_elasticache_replication_group.replication.*.cluster_enabled)  
   description = "indicates if the cluster is enabled"
 }

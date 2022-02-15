@@ -12,6 +12,7 @@ resource "aws_mq_broker" "broker" {
   host_instance_type  = var.host_instance_type
   deployment_mode     = local.deployment_mode
   publicly_accessible = var.publicly_accessible
+  security_groups     = var.security_groups
   
 
   user {

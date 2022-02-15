@@ -24,3 +24,5 @@ variable "broker_name" {}
 
 variable "storage_type" {}
 
+variable "security_groups" {}
+

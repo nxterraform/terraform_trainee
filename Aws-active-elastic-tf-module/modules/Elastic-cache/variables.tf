@@ -18,14 +18,13 @@ variable "parameter_group_name" {}
 
 variable "apply_immediately" {}
 
-variable "availability_zone" {}
-
 variable "engine" {}
 
 variable "num_node_groups" {}
 
 variable "cluster_enabled"{}
 
+variable "environment" {}
 
 
 

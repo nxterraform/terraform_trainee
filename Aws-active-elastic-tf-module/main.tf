@@ -1,5 +1,7 @@
 #create active-mq
 module "mq" {
+  
+  count  = var.mq_module_enabled ? 1 : 0
   source  = "./modules/Active-Mq"
 
   broker_name                   = var.broker_name
@@ -15,23 +17,25 @@ module "mq" {
   storage_type                  = var.storage_type
   maintenance_window_start_time = var.maintenance_window_start_time
   audit                         = var.audit
+  security_groups               = var.security_groups
 }
 
 
 #create redis-elastic
 module "redis" {
+
+ count  = var.redis_module_enabled ? 1 : 0
  source  = "./modules/Elastic-cache"
 
   engine                        = var.engine
-  cluster_id                    =  "${var.engine}-${var.cluster_id}"
+  cluster_id                    =  "${var.engine}-${var.environment}"
   
   security_group_ids            = var.security_group_ids
   num_cache_nodes               = var.num_cache_nodes
   node_type                     = var.node_type
   apply_immediately             = var.apply_immediately
-  engine_version                = "6.x"
   port                          = var.port
-  availability_zone             = var.availability_zone
+  
   maintenance_window            = var.maintenance_window 
   
   replication_group_id          = var.replication_group_id
@@ -39,6 +43,7 @@ module "redis" {
   replication_group_description = var.replication_group_description
   num_node_groups               = var.num_node_groups
   cluster_enabled               = var.cluster_enabled
+  environment                   = var.environment
   
   depends_on                    = [module.mq]
  }

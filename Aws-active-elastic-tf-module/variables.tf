@@ -1,3 +1,29 @@
+variable "access_key" {
+  type    = string
+  default = ""
+}
+
+variable "secret_key" {
+  type    = string
+  default = ""
+}
+
+variable "region" {
+  type    = string
+  default = "us-east-2"
+}
+
+variable "cluster_enabled" {
+  type   = bool
+  description = "It will set cluster value to TRUE or FALSE"
+}
+
+
+
+#----------------------------------------MQ-------------------------------------------
+
+
+
 variable "common_tags" {
   description = "This is to help you add tags to your cloud objects"
   type        = map(any)
@@ -9,7 +35,7 @@ variable "common_tags" {
 variable "subnet_ids" {
   description = "Contains subnet ids"
   type        = list(any)
-  default     = ["subnet-dd52a0b6"]
+  default     = []
 
 }
 
@@ -32,31 +58,31 @@ variable "maintenance_window_start_time" {
 
 variable "username" {
   type        = string
-  description = "elite-@test"
-  default     = "ExampleUser"
+  description = "username for mq"
+  default     = ""
 }
 
 variable "password" {
   type        = string
-  description = "mq#1234"
+  description = "password for the mq"
   sensitive   = true
 }
 
 variable "engine_type" {
   type        = string
-  default     = "RabbitMQ"
+  default     = ""
   description = "Type of broker engine. Valid values are ActiveMQ and RabbitMQ."
 }
 
 variable "engine_version" {
   type        = string
-  default     = "3.8.26"
+  default     = ""
   description = "Version of the broker engine. See the AmazonMQ Broker Engine docs for supported versions. For example, 5.15.0"
 }
 
 variable "host_instance_type" {
   type        = string
-  default     = "mq.m5.large"
+  default     = ""
   description = "Broker's instance type. For example, mq.t3.micro, mq.m5.large"
 }
 
@@ -68,28 +94,14 @@ variable "deployment_mode" {
 
 variable "publicly_accessible" {
   type        = string
-  default     = "false"
+  default     = ""
   description = " Whether to enable connections from applications outside of the VPC that hosts the broker's subnets."
 }
 
-variable "access_key" {
-  type    = string
-  default = ""
-}
-
-variable "secret_key" {
-  type    = string
-  default = ""
-}
-
-variable "region" {
-  type    = string
-  default = "us-east-2"
-}
 
 variable "broker_name" {
   type        = string
-  default     = "elite-test-id1"
+  default     = ""
   description = "Name of the broker."
 }
 
@@ -99,28 +111,42 @@ variable "storage_type" {
   default     = null
 }
 
+variable "security_groups" {
+  type      = list(string)
+  description = "list of security_groups"
+  default     =  []
+}
+
+variable "mq_module_enabled" {
+  type = bool
+  description = "It will set the value to TRUE or FALSE while running the module"
+}
+
+#----------------------------------REDIS------------------------------------
+
+
 variable "replication_group_id" {
   type        = string
-  default  = "redis1"
+  default  = ""
   description = "The replication group identifier. This parameter is stored as a lowercase string."
 }
 
 variable "cluster_id" {
   description = "cluster_id of cluster"
   type = string
-  default = "demo"
+  default = ""
 }
 
 
 variable "num_cache_nodes" {
-  default     = "1"
+  default     = ""
   type        = string
   description = "Cache Node count"
 }
 
 variable "node_type" {
   type        = string
-  default  = "cache.t2.micro"
+  default  = ""
   description = "The compute and memory capacity of the nodes in the node group."
 }
 
@@ -131,7 +157,7 @@ variable "security_group_ids" {
 }
 
 variable "replication_group_description" {
-  default     = "test description"
+  default     = ""
   type        = string
   description = "The description of the all resources."
 }
@@ -150,37 +176,35 @@ variable "port" {
 
 variable "parameter_group_name" {
   type = string
-  default     = "default.redis6.x.cluster.on"
+  default     = ""
   description = "A list of Redis parameters to apply. Note that parameters may differ from one Redis family to another"
 }
 
 variable "apply_immediately" {
   type = string
   description = "apply immediately default set to false"
-  default = "false"
-}
-
-variable "availability_zone" {
-  type = string
-  description = "availability_zone"
   default = ""
 }
 
 variable "engine" {
-  default = "redis"
+  default = ""
   type = string
   description = "Engine for elasticache"
 }
 
 variable "num_node_groups" {
-  default = "1"
+  default = ""
   type    = string
   description = "Number of Shards (nodes)."
-  
 }
 
-variable "cluster_enabled" {
-  type   = bool
-  description = "will set cluster value to TRUE or FALSE"
-  default     = "false"
+variable "environment" {
+  type        = string
+  description = "Name of Environment this redis is meant to house"
+  default = ""
+}
+
+variable "redis_module_enabled" {
+  type = bool
+  description = "It will set the value to TRUE or FALSE while running the module"
 }
